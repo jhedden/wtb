@@ -1,0 +1,14 @@
+{
+  "name": "what-the-box-clone",
+  "version": "1.0.0",
+  "description": "Multiplayer hide-and-slash: you are a box, everyone is a box, find the boxes that are players and cut them open.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "three": "^0.186.1",
+    "ws": "^8.18.0"
+  }
+}

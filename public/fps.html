@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>What The Box? — 3D</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script type="importmap">
+    { "imports": { "three": "/vendor/three/build/three.module.js", "three/addons/": "/vendor/three/examples/jsm/" } }
+  </script>
+</head>
+<body class="fps">
+  <canvas id="game"></canvas>
+  <div id="peephole"></div>
+
+  <div id="hud" class="hidden">
+    <div id="crosshair"></div>
+    <div id="timer">3:00</div>
+    <div id="me-stats"><span title="Cuts">✂ <b id="kills">0</b></span><span title="Times cut open">☠ <b id="deaths">0</b></span></div>
+    <div id="opts"></div>
+    <div id="powers"></div>
+    <div id="toast"></div>
+    <div id="feed"></div>
+    <div id="bars">
+      <div class="bar"><div id="cd-fill" class="fill"></div><label>BOX CUTTER</label></div>
+      <div class="bar"><div id="st-fill" class="fill"></div><label>STAMINA</label></div>
+    </div>
+    <div id="hint">Mouse look · WASD move · Space jump · Shift sprint · Click / F slash · Tab scores · M decoy movement · Esc frees mouse</div>
+  </div>
+
+  <div id="lock" class="hidden"><div>CLICK TO LOOK AROUND</div></div>
+
+  <div id="scoreboard" class="panel hidden">
+    <h2>Scoreboard</h2>
+    <table id="score-table"></table>
+  </div>
+
+  <div id="death" class="hidden">
+    <h1>CUT OPEN!</h1>
+    <p id="death-by"></p>
+    <p class="sub">Repacking in <span id="respawn-t">3</span>…</p>
+  </div>
+
+  <div id="intermission" class="panel hidden">
+    <h1 id="winner"></h1>
+    <table id="final-table"></table>
+    <p class="sub">Next round in <span id="next-t">8</span>s</p>
+  </div>
+
+  <div id="menu">
+    <div class="card">
+      <h1 class="logo">WHAT THE <span>BOX?</span></h1>
+      <p class="tag">3D mode. The camera follows behind your box, so you can see where you're hiding.<br>Trust no cardboard.</p>
+      <div class="row">
+        <input id="name" maxlength="16" placeholder="Your box name" autocomplete="off">
+        <button id="play">PLAY</button>
+      </div>
+      <ul class="howto">
+        <li><b>Blend in.</b> Decoy boxes stand still, so move only when nobody's looking. Press <b>M</b> in game to let decoys wander (they walk, never sprint or jump). Looking around is free.</li>
+        <li><b>Slash</b> (click or F) toward the crosshair. The arc on the floor shows your reach, and the crosshair turns red when a box is in it. Whiffs and decoys mean a long cooldown.</li>
+        <li><b>Space jumps</b> over boxes. Handy for escaping, but it's a dead giveaway.</li>
+        <li><b>Power-ups</b> (speed, longer reach, bubble-wrap armour, X-ray specs and more) hide inside some decoys and turn up on the floor. Running over to grab one shows everyone you're a player.</li>
+        <li><b>Everyone sees every slash.</b> Shelves and fog are your friends.</li>
+      </ul>
+      <p id="status"></p>
+      <p class="switch"><a href="topdown.html">Play the top-down version →</a></p>
+    </div>
+  </div>
+
+  <script src="/shared.js"></script>
+  <script src="ui.js"></script>
+  <script type="module" src="fps.js"></script>
+</body>
+</html>

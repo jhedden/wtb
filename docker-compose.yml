@@ -1,0 +1,11 @@
+services:
+  game:
+    build: .
+    image: what-the-box-clone
+    ports:
+      - "3000:3000"
+    environment:
+      BOT_FILL: "4"          # bots top up each arena to this many players (0 = none)
+      ROUND_SECONDS: "180"
+      DECOYS_MOVE: "0"       # 1 = decoys wander from the start (players can toggle with M)
+    restart: unless-stopped
